@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Represents a user. Stored in a database; see {@link Entity} and <a href="https://gitlab.com/mvysny/jdbi-orm">JDBI-ORM</a> for more details.
@@ -71,6 +72,12 @@ public final class User implements Entity<Long>, HasPassword {
         this.roles = roles;
     }
 
+    @org.jetbrains.annotations.NotNull
+    public Set<String> getRoleSet() {
+        final String r = getRoles();
+        return r == null ? Set.of() : Set.of(r.split(","));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,4 +116,6 @@ public final class User implements Entity<Long>, HasPassword {
             return findSingleBy("username = :username", q -> q.bind("username", username));
         }
     }
+
+    public static final UserDao dao = new UserDao();
 }
