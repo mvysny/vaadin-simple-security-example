@@ -42,5 +42,5 @@ test {
 }
 
 application {
-    mainClassName = "com.vaadin.starter.skeleton.Main"
+    mainClassName = "com.example.security.Main"
 }
