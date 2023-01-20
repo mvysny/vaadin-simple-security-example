@@ -2,6 +2,7 @@ package com.example.security.security;
 
 import com.github.mvysny.vaadinsimplesecurity.inmemory.InMemoryLoginService;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.login.AbstractLogin;
 import com.vaadin.flow.component.login.LoginForm;
 import com.vaadin.flow.component.login.LoginI18n;
@@ -32,11 +33,14 @@ public class LoginRoute extends VerticalLayout implements ComponentEventListener
         setAlignItems(Alignment.CENTER);
 
         login.addLoginListener(this);
-        final LoginI18n loginI18n = new LoginI18n();
+        final LoginI18n loginI18n = LoginI18n.createDefault();
+        // doesn't work at the moment: https://github.com/vaadin/flow/issues/15729
         loginI18n.setHeader(new LoginI18n.Header());
         loginI18n.getHeader().setTitle("Vaadin Simple Security Demo");
+        add(new H2("Vaadin Simple Security Demo"));
         loginI18n.setAdditionalInformation("Log in as user/user or admin/admin");
         login.setI18n(loginI18n);
+        login.setForgotPasswordButtonVisible(false);
         add(login);
     }
 
