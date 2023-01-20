@@ -2,11 +2,14 @@ package com.example.security;
 
 import com.example.security.security.LoginRoute;
 import com.example.security.security.LoginService;
+import com.example.security.security.User;
 import com.example.security.welcome.WelcomeRoute;
 import com.github.mvysny.kaributesting.v10.MockVaadin;
 import com.github.mvysny.kaributesting.v10.Routes;
 import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import javax.security.auth.login.LoginException;
@@ -20,6 +23,17 @@ import static com.github.mvysny.kaributesting.v10.LocatorJ._assertOne;
 public abstract class AbstractAppTester {
     @NotNull
     private static final Routes routes = new Routes().autoDiscoverViews("com.example.security");
+
+    @BeforeAll
+    public static void beforeAll() {
+        new Bootstrap().contextInitialized(null);
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        User.dao.deleteAll();
+        new Bootstrap().contextDestroyed(null);
+    }
 
     /**
      * Mocks the UI and logs in given user.

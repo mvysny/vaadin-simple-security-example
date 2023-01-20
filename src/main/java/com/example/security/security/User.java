@@ -3,6 +3,7 @@ package com.example.security.security;
 import com.github.mvysny.vaadinsimplesecurity.HasPassword;
 import com.gitlab.mvysny.jdbiorm.Dao;
 import com.gitlab.mvysny.jdbiorm.Entity;
+import com.gitlab.mvysny.jdbiorm.Table;
 import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import java.util.Set;
  * Implements the {@link HasPassword} helper interface which provides password hashing functionality. Remember to set the
  * password via {@link #setPassword(String)} and verify the password via {@link #passwordMatches(String)}.
  */
+@Table("users")
 public final class User implements Entity<Long>, HasPassword {
     private Long id;
     /**

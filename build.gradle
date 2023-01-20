@@ -19,6 +19,11 @@ dependencies {
 
     implementation('org.jetbrains:annotations:22.0.0')
     implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:0.2")
+
+    // db
+    implementation("com.zaxxer:HikariCP:5.0.1")
+    implementation("org.flywaydb:flyway-core:9.8.2")
+    implementation("com.h2database:h2:2.1.214")
     implementation("com.gitlab.mvysny.jdbiorm:jdbi-orm:0.10")
 
     // logging
