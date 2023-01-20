@@ -5,6 +5,7 @@ import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.PermitAll;
@@ -16,6 +17,7 @@ import javax.annotation.security.PermitAll;
  * create an app-wide layout which hosts views.
  */
 @Route(value = "", layout = MainLayout.class)
+@PageTitle("Welcome")
 @PermitAll
 public class WelcomeRoute extends VerticalLayout {
     public WelcomeRoute() {
