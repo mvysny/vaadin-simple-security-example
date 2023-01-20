@@ -1,11 +1,10 @@
 package com.example.security;
 
 import com.example.security.security.LoginRoute;
+import com.example.security.security.LoginService;
 import com.example.security.welcome.WelcomeRoute;
-import com.github.mvysny.kaributesting.v10.LocatorJ;
 import com.github.mvysny.kaributesting.v10.MockVaadin;
 import com.github.mvysny.kaributesting.v10.Routes;
-import com.github.mvysny.vaadinsimplesecurity.inmemory.InMemoryLoginService;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +26,7 @@ public abstract class AbstractAppTester {
      */
     public static void login(@NotNull String username) {
         try {
-            InMemoryLoginService.get().login(username, username);
+            LoginService.get().login(username, username);
         } catch (LoginException e) {
             throw new RuntimeException(e);
         }

@@ -2,9 +2,9 @@ package com.example.security;
 
 import com.example.security.admin.AdminRoute;
 import com.example.security.components.NavMenuBar;
+import com.example.security.security.LoginService;
 import com.example.security.user.UserRoute;
 import com.example.security.welcome.WelcomeRoute;
-import com.github.mvysny.vaadinsimplesecurity.inmemory.InMemoryLoginService;
 import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -27,7 +27,7 @@ public class MainLayout extends AppLayout implements RouterLayout {
         navMenuBar.addRoute(VaadinIcon.NEWSPAPER, WelcomeRoute.class);
         navMenuBar.addRoute(VaadinIcon.LIST, UserRoute.class);
         navMenuBar.addRoute(VaadinIcon.COG, AdminRoute.class);
-        navMenuBar.addButton(VaadinIcon.SIGN_OUT, "Log Out", () -> InMemoryLoginService.get().logout());
+        navMenuBar.addButton(VaadinIcon.SIGN_OUT, "Log Out", () -> LoginService.get().logout());
         addToDrawer(navMenuBar);
 
         setContent(contentPane);

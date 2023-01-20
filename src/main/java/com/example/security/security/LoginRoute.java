@@ -1,6 +1,5 @@
 package com.example.security.security;
 
-import com.github.mvysny.vaadinsimplesecurity.inmemory.InMemoryLoginService;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.login.AbstractLogin;
@@ -46,7 +45,7 @@ public class LoginRoute extends VerticalLayout implements ComponentEventListener
     @Override
     public void onComponentEvent(@NotNull AbstractLogin.LoginEvent loginEvent) {
         try {
-            InMemoryLoginService.get().login(loginEvent.getUsername(), loginEvent.getPassword());
+            LoginService.get().login(loginEvent.getUsername(), loginEvent.getPassword());
         } catch (LoginException ex) {
             log.warn("Login failed", ex);
             login.setError(true);
