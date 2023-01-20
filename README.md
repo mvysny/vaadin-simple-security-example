@@ -11,30 +11,28 @@ on how you run, develop and package this Vaadin-Boot-based app.
 # About the application
 
 The application uses the username+password authorization, with users stored in an in-memory H2 SQL database
-(the [User](src/main/kotlin/com/vaadin/securitydemo/User.kt) class). There are no
+(the [User](src/main/java/com/example/security/security/User.java) class). There are no
 views that could be accessed publicly - the user must log in first, in order to see any part of the app.
 
-There are two users pre-created by the [Bootstrap](src/main/kotlin/com/vaadin/securitydemo/Bootstrap.kt) class:
+There are two users pre-created by the [Bootstrap](src/main/java/com/example/security/Bootstrap.java) class:
 
 * The 'user' user with the password of 'user' and the role of `ROLE_USER`
 * The 'admin' user with the password of 'admin' and two roles: `ROLE_ADMIN` and `ROLE_USER`
 
-The [MainLayout](src/main/java/com/example/security/MainLayout.java) is configured to show a full-screen
-login form (provided for us by the Vaadin-on-Kotlin as [LoginForm](https://github.com/mvysny/vaadin-on-kotlin/blob/master/vok-util-vaadin10/src/main/kotlin/com/github/vok/framework/flow/VokSecurity.kt) class).
+The [AppServiceInitListener](src/main/java/com/example/security/ApplicationServiceInitListener.java) configures
+Vaadin to check authorization and redirects to the Login route if there's no user logged in.
 The username and password are compared against the database. The `User` class takes advantage
-of the [HasPassword](https://github.com/mvysny/vaadin-on-kotlin/blob/master/vok-security/src/main/kotlin/com/github/vok/security/simple/HasPassword.kt)
+of the `HasPassword`
 mixin which makes sure to store the passwords in a hashed form.
 
-If the login succeeds, the user is then stored into the session (or, rather, the `LoginManager` class
+If the login succeeds, the user is then stored into the session (or, rather, the `LoginService` class
 is stored in the session along with the currently logged-in user. This way, we can group all
 login/logout functionality into single class). Then, the page is refreshed. This forces Vaadin
 to create a new instance of the `MainLayout`. Since a non-null user is now in the session, the `MainLayout`
-will not perform the reroute to the login view; instead it will show the application layout.
+will not perform the re-route to the login view; instead it will show the application layout.
 
 There are four views:
 
-* The [WelcomeView](src/main/kotlin/com/vaadin/securitydemo/WelcomeView.kt) which is accessible by all logged-in users;
-* The [UserView](src/main/kotlin/com/vaadin/securitydemo/UserView.kt) which is accessible by all users with roles `user` and `admin`
-* The [AdminView](src/main/kotlin/com/vaadin/securitydemo/AdminView.kt) which is accessible by users with the `admin` role only
-* The [UserProfileView](src/main/kotlin/com/vaadin/securitydemo/UserProfileView.kt) which shows info about the currently logged-in user and is therefore accessible by
-  all logged-in users.
+* The [WelcomeRoute](src/main/java/com/example/security/welcome/WelcomeRoute.java) which is accessible by all logged-in users;
+* The [UserRoute](src/main/java/com/example/security/user/UserRoute.java) which is accessible by all users with roles `ROLE_USER` and `ROLE_ADMIN`
+* The [AdminRoute](src/main/java/com/example/security/admin/AdminRoute.java) which is accessible by users with the `ROLE_ADMIN` role only
