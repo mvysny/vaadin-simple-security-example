@@ -17,5 +17,6 @@ import javax.annotation.security.RolesAllowed;
 public class AdminRoute extends VerticalLayout {
     public AdminRoute() {
         add(new H1("Administration pages"));
+        // @todo mavi add the Users grid
     }
 }
