@@ -1,10 +1,13 @@
 package com.example.security.admin;
 
 import com.example.security.MainLayout;
+import com.example.security.security.User;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.starter.skeleton.EntityDataProvider;
 
 import javax.annotation.security.RolesAllowed;
 
@@ -17,6 +20,22 @@ import javax.annotation.security.RolesAllowed;
 public class AdminRoute extends VerticalLayout {
     public AdminRoute() {
         add(new H1("Administration pages"));
-        // @todo mavi add the Users grid
+
+        final Grid<User> grid = new Grid<>();
+        grid.setItems(new EntityDataProvider<>(User.dao));
+        addAndExpand(grid);
+
+        grid.addColumn(User::getId)
+                .setHeader("ID")
+                .setSortable(true)
+                .setKey("id");
+        grid.addColumn(User::getUsername)
+                .setHeader("Username")
+                .setSortable(true)
+                .setKey("username");
+        grid.addColumn(User::getRoles)
+                .setHeader("Roles");
+        grid.addColumn(User::getHashedPassword)
+                .setHeader("Hashed Password");
     }
 }

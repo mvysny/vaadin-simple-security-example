@@ -4,6 +4,7 @@ import com.github.mvysny.vaadinsimplesecurity.HasPassword;
 import com.gitlab.mvysny.jdbiorm.Dao;
 import com.gitlab.mvysny.jdbiorm.Entity;
 import com.gitlab.mvysny.jdbiorm.Table;
+import com.vaadin.flow.data.provider.DataProvider;
 import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.NotNull;
