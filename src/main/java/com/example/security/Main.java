@@ -1,4 +1,4 @@
-package com.vaadin.starter.skeleton;
+package com.example.security;
 
 import com.github.mvysny.vaadinboot.VaadinBoot;
 import org.jetbrains.annotations.NotNull;

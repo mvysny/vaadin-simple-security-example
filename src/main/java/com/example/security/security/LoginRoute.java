@@ -1,5 +1,6 @@
 package com.example.security.security;
 
+import com.github.mvysny.vaadinsimplesecurity.inmemory.InMemoryLoginService;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.login.AbstractLogin;
 import com.vaadin.flow.component.login.LoginForm;
@@ -9,13 +10,17 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.security.auth.login.LoginException;
 
 @Route("login")
 @PageTitle("Login")
 @AnonymousAllowed
 public class LoginRoute extends VerticalLayout implements ComponentEventListener<AbstractLogin.LoginEvent> {
-
-    private static final String LOGIN_SUCCESS_URL = "/";
+    @NotNull
+    private static final Logger log = LoggerFactory.getLogger(LoginRoute.class);
 
     @NotNull
     private final LoginForm login = new LoginForm();
@@ -37,12 +42,10 @@ public class LoginRoute extends VerticalLayout implements ComponentEventListener
 
     @Override
     public void onComponentEvent(@NotNull AbstractLogin.LoginEvent loginEvent) {
-
-        boolean authenticated = SecurityUtils.authenticate(
-                loginEvent.getUsername(), loginEvent.getPassword());
-        if (authenticated) {
-            UI.getCurrent().getPage().setLocation(LOGIN_SUCCESS_URL);
-        } else {
+        try {
+            InMemoryLoginService.get().login(loginEvent.getUsername(), loginEvent.getPassword());
+        } catch (LoginException ex) {
+            log.warn("Login failed", ex);
             login.setError(true);
         }
     }
