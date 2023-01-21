@@ -1,4 +1,4 @@
-package com.vaadin.starter.skeleton;
+package com.example.security.components;
 
 import com.gitlab.mvysny.jdbiorm.Dao;
 import com.gitlab.mvysny.jdbiorm.OrderBy;

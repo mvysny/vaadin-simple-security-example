@@ -1,13 +1,13 @@
 package com.example.security.admin;
 
 import com.example.security.MainLayout;
+import com.example.security.components.EntityDataProvider;
 import com.example.security.security.User;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.starter.skeleton.EntityDataProvider;
 
 import javax.annotation.security.RolesAllowed;
 
