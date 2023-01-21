@@ -37,6 +37,6 @@ public final class LoginService extends AbstractLoginService<User> {
 
     @NotNull
     public static LoginService get() {
-        return AbstractLoginService.get(LoginService.class, LoginService::new);
+        return get(LoginService.class, LoginService::new);
     }
 }
