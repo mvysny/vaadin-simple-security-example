@@ -11,7 +11,8 @@ on how you run, develop and package this Vaadin-Boot-based app.
 # About the application
 
 The application uses the username+password authorization, with users stored in an in-memory H2 SQL database
-(the [User](src/main/java/com/example/security/security/User.java) class). There are no
+(the [User](src/main/java/com/example/security/security/User.java) class;
+uses [jdbi-orm](https://gitlab.com/mvysny/jdbi-orm) to map Java classes to SQL tables). There are no
 views that could be accessed publicly - the user must log in first, in order to see any part of the app.
 
 There are two users pre-created by the [Bootstrap](src/main/java/com/example/security/Bootstrap.java) class:
