@@ -32,10 +32,7 @@ public class LoginRoute extends VerticalLayout implements ComponentEventListener
 
         login.addLoginListener(this);
         final LoginI18n loginI18n = LoginI18n.createDefault();
-        // doesn't work at the moment: https://github.com/vaadin/flow/issues/15729
-        loginI18n.setHeader(new LoginI18n.Header());
-        loginI18n.getHeader().setTitle("Vaadin Simple Security Demo");
-        add(new H2("Vaadin Simple Security Demo"));
+        loginI18n.getForm().setTitle("Vaadin Simple Security Demo");
         loginI18n.setAdditionalInformation("Log in as user/user or admin/admin");
         login.setI18n(loginI18n);
         login.setForgotPasswordButtonVisible(false);
