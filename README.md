@@ -1,7 +1,7 @@
 # Vaadin Simple Security Example App
 
 A demo project for the [Vaadin Simple Security](https://github.com/mvysny/vaadin-simple-security)
-library.
+library. Requires Java 17+.
 
 # Preparing Environment
 

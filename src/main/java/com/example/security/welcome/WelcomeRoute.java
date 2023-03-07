@@ -1,14 +1,13 @@
 package com.example.security.welcome;
 
 import com.example.security.MainLayout;
-import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import javax.annotation.security.PermitAll;
+import jakarta.annotation.security.PermitAll;
 
 /**
  * The welcome view of the app, visible to all users. It is a vertical layout which lays out the child components vertically.
