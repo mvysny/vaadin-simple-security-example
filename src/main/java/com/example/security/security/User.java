@@ -6,7 +6,7 @@ import com.gitlab.mvysny.jdbiorm.Entity;
 import com.gitlab.mvysny.jdbiorm.Table;
 import org.jetbrains.annotations.Nullable;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.Set;
 
@@ -62,7 +62,7 @@ public final class User implements Entity<Long>, HasPassword {
     }
 
     @Override
-    public void setHashedPassword(String hashedPassword) {
+    public void setHashedPassword(@org.jetbrains.annotations.NotNull String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
 
