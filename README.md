@@ -8,6 +8,8 @@ library. Requires Java 17+.
 Please see the [Vaadin Boot](https://github.com/mvysny/vaadin-boot#preparing-environment) documentation
 on how you run, develop and package this Vaadin-Boot-based app.
 
+See a live demo at [v-herd.eu/vaadin-simple-security-example](https://v-herd.eu/vaadin-simple-security-example)
+
 # About the application
 
 The application uses the username+password authorization, with users stored in an in-memory H2 SQL database
