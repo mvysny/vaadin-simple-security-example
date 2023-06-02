@@ -1,29 +1,32 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
-    id 'java'
-    id 'application'
-    id 'com.vaadin' version '24.0.4'
+    java
+    application
+    id("com.vaadin") version "24.1.0.rc1"
 }
 
 defaultTasks("clean", "build")
 
 repositories {
+    maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
     mavenCentral()
 }
 
 dependencies {
     // Vaadin
-    implementation("com.vaadin:vaadin-core:24.0.4") {
+    implementation("com.vaadin:vaadin-core:24.1.0.rc1") {
         afterEvaluate {
             if (vaadin.productionMode) {
-                exclude(module: "vaadin-dev")
+                exclude(module = "vaadin-dev")
             }
         }
     }
 
     // Vaadin-Boot
-    implementation("com.github.mvysny.vaadin-boot:vaadin-boot:11.2")
+    implementation("com.github.mvysny.vaadin-boot:vaadin-boot:11.3")
 
-    implementation('org.jetbrains:annotations:23.1.0')
+    implementation("org.jetbrains:annotations:23.1.0")
     implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:0.2")
 
     // db
@@ -46,13 +49,14 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-test {
+tasks.withType<Test> {
     useJUnitPlatform()
     testLogging {
-        exceptionFormat = "FULL"
+        exceptionFormat = TestExceptionFormat.FULL
     }
 }
 
 application {
-    mainClassName = "com.example.security.Main"
+    mainClass.set("com.example.security.Main")
 }
+
