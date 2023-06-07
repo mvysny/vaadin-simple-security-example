@@ -1,16 +1,18 @@
 package com.example.security;
 
 import com.example.security.admin.AdminRoute;
-import com.example.security.components.NavMenuBar;
 import com.example.security.security.LoginService;
 import com.example.security.user.UserRoute;
 import com.example.security.welcome.WelcomeRoute;
 import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.sidenav.SideNav;
+import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.RouterLayout;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,12 +25,11 @@ public class MainLayout extends AppLayout implements RouterLayout {
 
     public MainLayout() {
         addToNavbar(new DrawerToggle(), new H3("Vaadin Simple Security Demo"));
-        final NavMenuBar navMenuBar = new NavMenuBar();
-        navMenuBar.addRoute(VaadinIcon.NEWSPAPER, WelcomeRoute.class);
-        navMenuBar.addRoute(VaadinIcon.LIST, UserRoute.class);
-        navMenuBar.addRoute(VaadinIcon.COG, AdminRoute.class);
-        navMenuBar.addButton(VaadinIcon.SIGN_OUT, "Log Out", () -> LoginService.get().logout());
-        addToDrawer(navMenuBar);
+        final SideNav sideNav = new SideNav();
+        sideNav.addItem(new SideNavItem("Welcome", WelcomeRoute.class, VaadinIcon.NEWSPAPER.create()));
+        sideNav.addItem(new SideNavItem("User Contents", UserRoute.class, VaadinIcon.LIST.create()));
+        sideNav.addItem(new SideNavItem("Admin", AdminRoute.class, VaadinIcon.COG.create()));
+        addToDrawer(sideNav, new Button("Log Out", VaadinIcon.SIGN_OUT.create(), e -> LoginService.get().logout()));
 
         setContent(contentPane);
         contentPane.setSizeFull();
