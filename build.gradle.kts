@@ -37,8 +37,8 @@ dependencies {
 
     // db
     implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.flywaydb:flyway-core:9.15.2")
-    implementation("com.h2database:h2:2.1.214")
+    implementation("org.flywaydb:flyway-core:9.16.0")
+    implementation("com.h2database:h2:2.2.220")
     implementation("com.gitlab.mvysny.jdbiorm:jdbi-orm:1.0")
 
     // logging
