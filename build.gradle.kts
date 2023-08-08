@@ -30,7 +30,7 @@ dependencies {
     }
 
     // Vaadin-Boot
-    implementation("com.github.mvysny.vaadin-boot:vaadin-boot:11.3")
+    implementation("com.github.mvysny.vaadin-boot:vaadin-boot:12.0")
 
     implementation("org.jetbrains:annotations:23.1.0")
     implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:0.2")
