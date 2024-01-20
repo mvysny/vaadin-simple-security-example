@@ -26,7 +26,7 @@ dependencies {
     implementation("com.github.mvysny.vaadin-boot:vaadin-boot:12.2")
 
     implementation("org.jetbrains:annotations:24.0.1")
-    implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:0.2")
+    implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:1.0")
 
     // db
     implementation("com.zaxxer:HikariCP:5.0.1")
