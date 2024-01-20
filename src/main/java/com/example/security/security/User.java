@@ -4,6 +4,8 @@ import com.github.mvysny.vaadinsimplesecurity.HasPassword;
 import com.gitlab.mvysny.jdbiorm.Dao;
 import com.gitlab.mvysny.jdbiorm.Entity;
 import com.gitlab.mvysny.jdbiorm.Table;
+import com.gitlab.mvysny.jdbiorm.TableProperty;
+import org.jdbi.v3.core.annotation.JdbiProperty;
 import org.jetbrains.annotations.Nullable;
 
 import jakarta.validation.constraints.NotNull;
@@ -120,4 +122,13 @@ public final class User implements Entity<Long>, HasPassword {
     }
 
     public static final UserDao dao = new UserDao();
+
+    @JdbiProperty(map = false)
+    public static final TableProperty<User, Long> ID = TableProperty.of(User.class, "id");
+    @JdbiProperty(map = false)
+    public static final TableProperty<User, String> USERNAME = TableProperty.of(User.class, "username");
+    @JdbiProperty(map = false)
+    public static final TableProperty<User, String> HASHED_PASSWORD = TableProperty.of(User.class, "hashedPassword");
+    @JdbiProperty(map = false)
+    public static final TableProperty<User, String> ROLES = TableProperty.of(User.class, "roles");
 }

@@ -1,8 +1,8 @@
 package com.example.security.admin;
 
 import com.example.security.MainLayout;
-import com.example.security.components.EntityDataProvider;
 import com.example.security.security.User;
+import com.gitlab.mvysny.jdbiorm.vaadin.EntityDataProvider;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -22,17 +22,17 @@ public class AdminRoute extends VerticalLayout {
         add(new H1("Administration pages"));
 
         final Grid<User> grid = new Grid<>();
-        grid.setItems(new EntityDataProvider<>(User.dao));
+        grid.setDataProvider(new EntityDataProvider<>(User.class));
         addAndExpand(grid);
 
         grid.addColumn(User::getId)
                 .setHeader("ID")
                 .setSortable(true)
-                .setKey("id");
+                .setKey(User.ID.getName().getName());
         grid.addColumn(User::getUsername)
                 .setHeader("Username")
                 .setSortable(true)
-                .setKey("username");
+                .setKey(User.USERNAME.getName().getName());
         grid.addColumn(User::getRoles)
                 .setHeader("Roles");
         grid.addColumn(User::getHashedPassword)

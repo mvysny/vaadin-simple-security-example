@@ -32,7 +32,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.flywaydb:flyway-core:9.22.3")
     implementation("com.h2database:h2:2.2.224")
-    implementation("com.gitlab.mvysny.jdbiorm:jdbi-orm:1.0")
+    implementation("com.gitlab.mvysny.jdbiormvaadin:jdbi-orm-vaadin:1.1")
 
     // logging
     // currently we are logging through the SLF4J API to SLF4J-Simple. See src/main/resources/simplelogger.properties file for the logger configuration
