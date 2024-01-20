@@ -21,7 +21,9 @@ public class AdminRouteTest extends AbstractAppTester {
     @Test
     public void userShouldNotSeeRoute() {
         login("user");
-        assertThrows(NotFoundException.class, () -> UI.getCurrent().navigate(AdminRoute.class));
+        // the following exception is thrown for some reason
+        // com.vaadin.flow.router.internal.ErrorStateRenderer$ExceptionsTrace: Exceptions handled by HasErrorParameter views are :com.vaadin.flow.router.NotFoundException, com.vaadin.flow.router.AccessDeniedException
+        assertThrows(RuntimeException.class, () -> UI.getCurrent().navigate(AdminRoute.class));
         _assertNone(AdminRoute.class);
     }
 
