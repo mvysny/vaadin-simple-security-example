@@ -26,13 +26,13 @@ dependencies {
     implementation(libs.vaadinboot)
 
     implementation(libs.jetbrains.annotations)
-    implementation("com.github.mvysny.vaadin-simple-security:vaadin-simple-security:1.0")
+    implementation(libs.vaadinsimplesecurity)
 
     // db
     implementation(libs.hikaricp)
     implementation(libs.flyway)
     implementation(libs.h2)
-    implementation("com.gitlab.mvysny.jdbiormvaadin:jdbi-orm-vaadin:1.1")
+    implementation(libs.jdbiormvaadin)
 
     // logging
     // currently we are logging through the SLF4J API to SLF4J-Simple. See src/main/resources/simplelogger.properties file for the logger configuration
