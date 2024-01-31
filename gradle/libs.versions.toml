@@ -1,0 +1,20 @@
+[versions]
+vaadin = "24.3.3"
+# https://repo1.maven.org/maven2/org/slf4j/slf4j-api/
+slf4j = "2.0.9"
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+jetbrains-annotations = "org.jetbrains:annotations:24.0.1"
+vaadin-core = { module = "com.vaadin:vaadin-core", version.ref = "vaadin" }
+kaributesting = "com.github.mvysny.kaributesting:karibu-testing-v24:2.1.2"
+vaadinboot = "com.github.mvysny.vaadin-boot:vaadin-boot:12.2"
+hikaricp = "com.zaxxer:HikariCP:5.0.1"
+flyway = "org.flywaydb:flyway-core:9.22.3"
+h2 = "com.h2database:h2:2.2.224"
+junit-jupiter = "org.junit.jupiter:junit-jupiter-engine:5.9.3"
+junit-platform = "org.junit.platform:junit-platform-launcher:1.9.3"
+
+[plugins]
+vaadin = { id = "com.vaadin", version.ref = "vaadin" }
