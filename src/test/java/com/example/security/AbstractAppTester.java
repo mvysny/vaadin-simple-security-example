@@ -6,6 +6,7 @@ import com.example.security.security.User;
 import com.example.security.welcome.WelcomeRoute;
 import com.github.mvysny.kaributesting.v10.MockVaadin;
 import com.github.mvysny.kaributesting.v10.Routes;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.VaadinService;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
