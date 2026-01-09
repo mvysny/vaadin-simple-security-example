@@ -54,5 +54,5 @@ tasks.withType<Test> {
 }
 
 application {
-    mainClass.set("com.example.security.Main")
+    mainClass = "com.example.security.Main"
 }
