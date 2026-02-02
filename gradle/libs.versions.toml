@@ -15,7 +15,7 @@ vaadinsimplesecurity = "com.github.mvysny.vaadin-simple-security:vaadin-simple-s
 jdbiormvaadin = "com.gitlab.mvysny.jdbiormvaadin:jdbi-orm-vaadin:1.3"
 hikaricp = "com.zaxxer:HikariCP:7.0.2"
 flyway = "org.flywaydb:flyway-core:11.20.3"
-h2 = "com.h2database:h2:2.2.224"
+h2 = "com.h2database:h2:2.4.240"
 junit-jupiter = "org.junit.jupiter:junit-jupiter-engine:6.0.1"
 
 [plugins]
