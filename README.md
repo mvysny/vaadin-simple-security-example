@@ -1,7 +1,10 @@
 # Vaadin Simple Security Example App
 
 A demo project for the [Vaadin Simple Security](https://github.com/mvysny/vaadin-simple-security)
-library. Requires Java 21+.
+library: username+password login and role-based route access for a Vaadin Flow app that runs
+from a plain `main()` on [Vaadin Boot](https://github.com/mvysny/vaadin-boot), no Spring.
+The library owns the access check and the session; this app owns the users table, the login
+screen and the routes it guards. Requires Java 21+.
 
 # Preparing Environment
 

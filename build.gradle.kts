@@ -57,3 +57,15 @@ tasks.withType<Test> {
 application {
     mainClass = "com.example.security.Main"
 }
+
+// The doc-layer checks (AGENTS.md, "Design docs"). They need a git checkout and the git binary,
+// so a ZIP download and the Docker build skip them; CI also runs them in a job of their own.
+val canRunTripwires = file(".git").exists() &&
+        System.getenv("PATH").orEmpty().split(File.pathSeparator).any { File(it, "git").canExecute() }
+val verifyDesignTripwires = tasks.register<Exec>("verifyDesignTripwires") {
+    group = "verification"
+    description = "Runs design/verify_design_tripwires.sh"
+    onlyIf("needs a git checkout and git on the PATH") { canRunTripwires }
+    commandLine("bash", "design/verify_design_tripwires.sh")
+}
+tasks.check { dependsOn(verifyDesignTripwires) }

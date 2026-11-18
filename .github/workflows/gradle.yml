@@ -24,3 +24,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build '-Pvaadin.productionMode' --no-daemon --no-watch-fs
 
+  design-tripwires:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Check the doc layer
+      run: design/verify_design_tripwires.sh
+
