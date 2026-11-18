@@ -31,8 +31,10 @@ public class LoginRoute extends VerticalLayout implements ComponentEventListener
         setAlignItems(Alignment.CENTER);
 
         login.addLoginListener(this);
-        final LoginI18n loginI18n = LoginI18n.createDefault();
-        loginI18n.getForm().setTitle("Vaadin Simple Security Demo");
+        final LoginI18n loginI18n = new LoginI18n();
+        final LoginI18n.Form form = new LoginI18n.Form();
+        form.setTitle("Vaadin Simple Security Demo");
+        loginI18n.setForm(form);
         loginI18n.setAdditionalInformation("Log in as user/user or admin/admin");
         login.setI18n(loginI18n);
         login.setForgotPasswordButtonVisible(false);

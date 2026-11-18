@@ -56,7 +56,7 @@ Every fact lives in exactly one of these; the others link to it.
 ./gradlew test                               # run all tests
 ./gradlew test --tests com.example.security.security.LoginServiceTest      # single test class
 ./gradlew test --tests com.example.security.security.LoginServiceTest.successfulLogin  # single test method
-./gradlew build -Pvaadin.productionMode      # production build (bundles frontend; produces build/distributions/app.tar)
+./gradlew build -Pvaadin.productionMode      # production build (bundles frontend; produces build/distributions/<project dir name>.tar, app.tar in Docker)
 ./gradlew vaadinClean                        # nuke node_modules / generated frontend if Vite/pnpm gets wedged
 design/verify_design_tripwires.sh            # the doc-layer checks alone
 ```
